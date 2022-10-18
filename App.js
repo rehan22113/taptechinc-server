@@ -29,7 +29,7 @@ App.use(cookieParser())
 App.use(express.json())
 App.use(bodyParser.json());
 App.use(bodyParser.urlencoded({ extended: true }));
-App.use(cors())
+App.use(cors({ credentials: true, origin: "http://taptechinc.vercel.app" }))
 App.use(session({
 	secret:'secret123',
     resave:true,
