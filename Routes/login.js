@@ -17,7 +17,7 @@ Route.post("/login",async(req,res)=>{
         if(!(userData===null) && userData.password === password){
             // console.log("helllldslkdlsakdlsa");
             const token =await userData.generateAuthToken()
-            res.cookie("jwt",token,{httpOnly:true})
+            res.cookie("jwt",token,{httpOnly:false})
             res.send({message:"Logged in",userData}).status(200)
         }
         if(userData===null){
