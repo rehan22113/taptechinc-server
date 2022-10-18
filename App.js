@@ -46,8 +46,8 @@ App.use("/products/cart",cart)
 //Routes
 
 App.get("/dashboard",adminAuth,(req,res)=>{
-    console.log("dashboard request come");
-    if(req.user){
+    if(req.user && req.user.isAdmin){
+        console.log("dashboard request come");
         res.status(200).send({user:req.user})
     }
     else{

@@ -15,6 +15,7 @@ const adminAuth = async(req,res,next)=>{
     req.token = token;
     req.user = user;
     if(user.isAdmin){
+        console.log(user.isAdmin);
         next();
     }
     else{
