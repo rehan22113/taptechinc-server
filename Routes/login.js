@@ -17,7 +17,10 @@ Route.post("/login",async(req,res)=>{
         if(!(userData===null) && userData.password === password){
             // console.log("helllldslkdlsakdlsa");
             const token =await userData.generateAuthToken()
-            res.cookie("jwt",token,{httpOnly:false})
+            res.cookie("jwt",token,{sameSite : "none",
+            secure: true,
+            domain: "taptechinc.vercel.app",
+            httpOnly: true})
             res.send({message:"Logged in",userData}).status(200)
         }
         if(userData===null){
@@ -40,7 +43,10 @@ Route.post("/register",async(req,res)=>{
             'userName.firstName':firstName,'userName.lastName':lastName,email:email,password:password
         })
        const token=await userData.generateAuthToken()
-       res.cookie("jwt",token)
+       res.cookie("jwt",token,{sameSite : "none",
+       secure: true,
+       domain: "taptechinc.vercel.app",
+       httpOnly: true})
         await userData.save()
         res.json({message:"Sucessfully Register"}).status(200)
     }catch(err){
