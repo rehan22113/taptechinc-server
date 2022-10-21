@@ -44,6 +44,9 @@ App.use("/products/cart",cart)
 
 
 //Routes
+App.get("/",(req,res)=>{
+    res.json({status:"OK",message:"Api working"}).status(200)
+})
 
 App.get("/dashboard",adminAuth,(req,res)=>{
     if(req.user && req.user.isAdmin){

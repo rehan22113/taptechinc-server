@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon App.js"
+    "start": "NODE_ENV=production node App.js",
+    "build":"NODE_ENV=development node App.js"
   },
   "keywords": [
     "taptechinc,cards,business"
