@@ -118,5 +118,5 @@ App.listen(PORT,(err)=>{
     if(!err)
     console.log(`Server Started on ${PORT}`);
     else
-    console.log("Server error in NODEJS",err);
+    console.log("Server error in NODEJS ",err);
 })
